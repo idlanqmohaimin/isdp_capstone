@@ -88,9 +88,9 @@ void setup() {
 
 void loop() {
   motorMove(0);
-  detectobstacle();
-  detectwhiteline();
-  temperaturevalue();
+  //detectobstacle();
+  //detectwhiteline();
+  //temperaturevalue();
  // nh.spinOnce();
   delay(1);
 }
@@ -235,31 +235,31 @@ void motorMove(int left, int right){
 void motorMove(int dir){
     speedo = 255;
 
-    vel = speedo * dir;
+    //vel = speedo * dir;
 
     if (dir >= 1){
       digitalWrite(dirA1, HIGH);
       digitalWrite(dirA2, LOW);
-      analogWrite(enA, vel);
+      analogWrite(enA, speedo);
       digitalWrite(dirB1, LOW);
       digitalWrite(dirB2, HIGH);
-      analogWrite(enB, vel);
+      analogWrite(enB, speedo);
     }
     else if (dir <= -1){
       digitalWrite(dirA1, LOW);
       digitalWrite(dirA2, HIGH);
-      analogWrite(enA, vel);
+      analogWrite(enA, speedo);
       digitalWrite(dirB1, HIGH);
       digitalWrite(dirB2, LOW);
-      analogWrite(enB, vel);
+      analogWrite(enB, speedo);
     }
     else {
       digitalWrite(dirA1, HIGH);
       digitalWrite(dirA2, LOW);
-      analogWrite(enA, vel);
+      analogWrite(enA, speedo);
       digitalWrite(dirB1, HIGH);
       digitalWrite(dirB2, LOW);
-      analogWrite(enB, vel);
+      analogWrite(enB, speedo);
     }
   }
 
