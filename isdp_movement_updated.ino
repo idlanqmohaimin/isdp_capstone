@@ -1,9 +1,9 @@
 #define enA 6              //
 #define enB 5
-#define dirA1 4
-#define dirA2 7
-#define dirB1 2
-#define dirB2 3
+#define dirA1 4   //in2
+#define dirA2 7   //in1
+#define dirB1 2   //in4
+#define dirB2 3   //in3
 #define wheel_base 0.120
 #define TRIG_PIN 13 
 #define ECHO_PIN 12
@@ -104,6 +104,8 @@ void detectobstacle()
  if(distance<=15)
  {
   motorStop();
+  motorMove(4);
+  delay(500);
   distanceR = lookRight();
   delay(200);
   distanceL = lookLeft();
@@ -111,14 +113,14 @@ void detectobstacle()
 
   if(distanceR>=distanceL)
   {
-   motorMove(4);
-   delay(500);
+   //motorMove(4);
+   //delay(500);
    motorMove(1);
    delay(100);
   }else
   {
-   motorMove(4);
-   delay(500);
+   //motorMove(4);
+   //delay(500);
    motorMove(2);
    delay(100);
   }
