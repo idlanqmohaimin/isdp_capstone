@@ -87,6 +87,7 @@ void setup() {
 }
 
 void loop() {
+  motorMove(0);
   detectobstacle();
   detectwhiteline();
   temperaturevalue();
