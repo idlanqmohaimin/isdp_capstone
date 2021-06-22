@@ -87,8 +87,8 @@ void setup() {
 }
 
 void loop() {
-  motorMove(0);
-  //detectobstacle();
+  motorMove(3);
+  detectobstacle();
   //detectwhiteline();
   //temperaturevalue();
  // nh.spinOnce();
@@ -111,14 +111,20 @@ void detectobstacle()
 
   if(distanceR>=distanceL)
   {
+   motorMove(4);
+   delay(500);
    motorMove(1);
+   delay(500);
   }else
   {
-   motorMove(-1);
+   motorMove(4);
+   delay(500);
+   motorMove(2);
+   dedlay(500);
   }
  }else
  {
-  motorMove(0);
+  motorMove(3);
  }
  distance = readPing();
 }
@@ -233,11 +239,9 @@ void motorMove(int left, int right){
   */
 
 void motorMove(int dir){
-    speedo = 255;
+    speedo = 128;
 
-    //vel = speedo * dir;
-
-    if (dir >= 1){
+    if (dir == 1){
       digitalWrite(dirA1, HIGH);
       digitalWrite(dirA2, LOW);
       analogWrite(enA, speedo);
@@ -245,7 +249,7 @@ void motorMove(int dir){
       digitalWrite(dirB2, HIGH);
       analogWrite(enB, speedo);
     }
-    else if (dir <= -1){
+    else if (dir == 2){
       digitalWrite(dirA1, LOW);
       digitalWrite(dirA2, HIGH);
       analogWrite(enA, speedo);
@@ -253,12 +257,20 @@ void motorMove(int dir){
       digitalWrite(dirB2, LOW);
       analogWrite(enB, speedo);
     }
-    else {
+    else if (dir == 3){
       digitalWrite(dirA1, HIGH);
       digitalWrite(dirA2, LOW);
       analogWrite(enA, speedo);
       digitalWrite(dirB1, HIGH);
       digitalWrite(dirB2, LOW);
+      analogWrite(enB, speedo);
+    }
+    else if (dir == 4){
+      digitalWrite(dirA1, LOW);
+      digitalWrite(dirA2, HIGH);
+      analogWrite(enA, speedo);
+      digitalWrite(dirB1, LOW);
+      digitalWrite(dirB2, HIGH);
       analogWrite(enB, speedo);
     }
   }
