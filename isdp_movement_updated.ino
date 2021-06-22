@@ -114,13 +114,13 @@ void detectobstacle()
    motorMove(4);
    delay(500);
    motorMove(1);
-   delay(500);
+   delay(100);
   }else
   {
    motorMove(4);
    delay(500);
    motorMove(2);
-   dedlay(500);
+   delay(100);
   }
  }else
  {
@@ -242,19 +242,19 @@ void motorMove(int dir){
     speedo = 128;
 
     if (dir == 1){
-      digitalWrite(dirA1, HIGH);
-      digitalWrite(dirA2, LOW);
-      analogWrite(enA, speedo);
-      digitalWrite(dirB1, LOW);
-      digitalWrite(dirB2, HIGH);
-      analogWrite(enB, speedo);
-    }
-    else if (dir == 2){
       digitalWrite(dirA1, LOW);
       digitalWrite(dirA2, HIGH);
       analogWrite(enA, speedo);
       digitalWrite(dirB1, HIGH);
       digitalWrite(dirB2, LOW);
+      analogWrite(enB, speedo);
+    }
+    else if (dir == 2){
+      digitalWrite(dirA1, HIGH);
+      digitalWrite(dirA2, LOW);
+      analogWrite(enA, speedo);
+      digitalWrite(dirB1, LOW);
+      digitalWrite(dirB2, HIGH);
       analogWrite(enB, speedo);
     }
     else if (dir == 3){
